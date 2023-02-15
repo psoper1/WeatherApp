@@ -3,6 +3,9 @@
 # What endpoint are we using from the API? Are there query parameters to send over? Where do I put the API Key?
 # What happens when we enter new information for the second time? 
 # When I click the button does it always automatically hide the bottom pane?
+# How do I create Bootstrap elements with Javascript?
+
+
 # HTML/CSS
 # Conditional rendering
 # When you first load page, the only thing you see is the input and the button
@@ -13,6 +16,7 @@
 # Protecting the input 
 
  # Organism
+ # Container holding the other organism containers that include the atoms
 
 
  ## Objectives
