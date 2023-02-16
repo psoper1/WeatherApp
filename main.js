@@ -4,66 +4,75 @@
 
 
 // function placeHolder() {
-    let main = document.getElementById("main");
-    let theStrap = document.createElement("div");
-    theStrap.className = "mainStrap";
-    main.appendChild(theStrap);
+let main = document.getElementById("main");
+let theStrap = document.createElement("div");
+theStrap.className = "mainStrap";
+main.appendChild(theStrap);
 
-    let aboveButton = document.createElement("div");
-    let text2 = document.createElement("h3");
-    text2.textContent = "What's the weather like today? Put in your ZIP and find out!";
-    text2.className = "font-bold text-danger";
-    aboveButton.appendChild(text2);
-    theStrap.appendChild(aboveButton);
+let aboveButton = document.createElement("div");
+let text2 = document.createElement("h3");
+text2.textContent = "What's the weather like today? Put in your ZIP and find out!";
+text2.className = "font-bold text-danger";
+aboveButton.appendChild(text2);
+theStrap.appendChild(aboveButton);
 
-    let section = document.createElement("div");
-    section.className = "flex flex-column";
-    let btn = document.createElement("button");
-    btn.textContent = "Submit";
-    section.appendChild(btn);
-    btn.id = "inputValue";
-    let btn2 = document.createElement("input");
-    section.appendChild(btn2);
-    theStrap.appendChild(section);
-
-
-    let cityInfo = document.createElement("div");
-    let text = document.createElement("p");
-    text.textContent = "City:";
-    text.className = "font-bold text-danger";
-    text.id = "city";
-    cityInfo.appendChild(text);
-    theStrap.appendChild(cityInfo);
-
-    let setTemp = document.createElement("div");
-    let text3 = document.createElement("p");
-    text3.textContent = "Temperature:";
-    text3.className = "font-bold text-danger";
-    text3.id = "temp";
-    setTemp.appendChild(text3);
-    theStrap.appendChild(setTemp);
-
-    let setCondition = document.createElement("div");
-    let text4 = document.createElement("p");
-    text4.textContent = "Conditions:";
-    text4.className = "font-bold text-danger";
-    text4.id = "cond";
-    setCondition.appendChild(text4);
-    theStrap.appendChild(setCondition);
+let section = document.createElement("div");
+section.className = "flex flex-column";
+let btn = document.createElement("button");
+btn.textContent = "Submit";
+section.appendChild(btn);
+btn.id = "inputValue";
+let btn2 = document.createElement("input");
+section.appendChild(btn2);
+theStrap.appendChild(section);
 
 
-    // City id is city
-    // Temperature id is temp
-    // Conditions id is cond
+let cityInfo = document.createElement("div");
+let text = document.createElement("p");
+text.textContent = "City:";
+text.className = "font-bold text-danger";
+text.id = "city";
+cityInfo.appendChild(text);
+theStrap.appendChild(cityInfo);
+
+let setTemp = document.createElement("div");
+let text3 = document.createElement("p");
+text3.textContent = "Temperature:";
+text3.className = "font-bold text-danger";
+text3.id = "temp";
+setTemp.appendChild(text3);
+theStrap.appendChild(setTemp);
+
+let setCondition = document.createElement("div");
+let text4 = document.createElement("p");
+text4.textContent = "Conditions:";
+text4.className = "font-bold text-danger";
+text4.id = "cond";
+setCondition.appendChild(text4);
+theStrap.appendChild(setCondition);
 
 
-    btn.addEventListener("click", function(){
-        fetch('https://api.openweathermap.org/data/2.5/weather?zip=40515,&appid=82d10d8b9124f9ece3e56c62befeda72')
-        .then(Response => Response.json())
-        .then(data => console.log(data))
-    
-        .catch (err => alert("Invalid City"))
+// City id is city
+// Temperature id is temp
+// Conditions id is cond
 
+let cityData = "";
+let temperatureF = "";
+let conditionsW = "";
+
+
+
+btn.addEventListener("click", function () {
+    axios.get('https://api.openweathermap.org/data/2.5/weather?zip=40515&appid=82d10d8b9124f9ece3e56c62befeda72')
+        // .then(Response => Response.json())
+        .then(response => {
+            console.log(response.data);
+             cityData = response.data.name;
+             temperatureF = response.data.main.temp;
+             conditionsW = response.data.weather[1].description;
+             console.log(cityData);
+        })
+        .catch(error => console.log("Error", error));
     })
 
 
