@@ -23,6 +23,7 @@ btn.textContent = "Submit";
 section.appendChild(btn);
 btn.id = "inputValue";
 let btn2 = document.createElement("input");
+btn2.id = "inputField";
 section.appendChild(btn2);
 theStrap.appendChild(section);
 
@@ -30,7 +31,7 @@ theStrap.appendChild(section);
 let cityInfo = document.createElement("div");
 let text = document.createElement("p");
 text.textContent = "City:";
-text.className = "font-bold text-danger";
+text.className = "font-bold text-success";
 text.id = "city";
 cityInfo.appendChild(text);
 theStrap.appendChild(cityInfo);
@@ -38,7 +39,7 @@ theStrap.appendChild(cityInfo);
 let setTemp = document.createElement("div");
 let text3 = document.createElement("p");
 text3.textContent = "Temperature:";
-text3.className = "font-bold text-danger";
+text3.className = "font-bold text-success";
 text3.id = "temp";
 setTemp.appendChild(text3);
 theStrap.appendChild(setTemp);
@@ -46,7 +47,7 @@ theStrap.appendChild(setTemp);
 let setCondition = document.createElement("div");
 let text4 = document.createElement("p");
 text4.textContent = "Conditions:";
-text4.className = "font-bold text-danger";
+text4.className = "font-bold text-success";
 text4.id = "cond";
 setCondition.appendChild(text4);
 theStrap.appendChild(setCondition);
@@ -56,24 +57,38 @@ theStrap.appendChild(setCondition);
 // Temperature id is temp
 // Conditions id is cond
 
-let cityData = "";
-let temperatureF = "";
-let conditionsW = "";
+// let cityData = "";
+// let temperatureF = "";
+// let conditionsW = "";
+
+
 
 
 
 btn.addEventListener("click", function () {
-    axios.get('https://api.openweathermap.org/data/2.5/weather?zip=40515&appid=82d10d8b9124f9ece3e56c62befeda72')
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${btn2.value}&appid=82d10d8b9124f9ece3e56c62befeda72`)
         // .then(Response => Response.json())
         .then(response => {
             console.log(response.data);
-             cityData = response.data.name;
-             temperatureF = response.data.main.temp;
-             conditionsW = response.data.weather[1].description;
-             console.log(cityData);
+            cityData = response.data.name;
+            temperatureK = Math.round(response.data.main.temp * 9 / 5 - 459.67);
+            // response.data.main.temp;
+            conditionsW = response.data.weather[0].description;
+            console.log(response.cityData);
+            
+            console.log(cityData);
+            console.log(temperatureK);
+            console.log(conditionsW);
+
+            // (temperatureK * 9) / 5 - 459.67;
+
+            text.innerText = cityData;
+            text3.innerText = temperatureK;
+            text4.innerText = conditionsW;
+
         })
         .catch(error => console.log("Error", error));
-    })
+})
 
 
 
