@@ -1,5 +1,5 @@
-let url = "https://api.openweathermap.org/";
-let apiKey = "82d10d8b9124f9ece3e56c62befeda72";
+// let url = "https://api.openweathermap.org/";
+// let apiKey = "82d10d8b9124f9ece3e56c62befeda72";
 
 
 
@@ -10,7 +10,7 @@ let apiKey = "82d10d8b9124f9ece3e56c62befeda72";
     main.appendChild(theStrap);
 
     let aboveButton = document.createElement("div");
-    let text2 = document.createElement("h2");
+    let text2 = document.createElement("h3");
     text2.textContent = "What's the weather like today? Put in your ZIP and find out!";
     text2.className = "font-bold text-danger";
     aboveButton.appendChild(text2);
@@ -21,6 +21,7 @@ let apiKey = "82d10d8b9124f9ece3e56c62befeda72";
     let btn = document.createElement("button");
     btn.textContent = "Submit";
     section.appendChild(btn);
+    btn.id = "inputValue";
     let btn2 = document.createElement("input");
     section.appendChild(btn2);
     theStrap.appendChild(section);
@@ -50,7 +51,24 @@ let apiKey = "82d10d8b9124f9ece3e56c62befeda72";
     setCondition.appendChild(text4);
     theStrap.appendChild(setCondition);
 
-// }
+
+    // City id is city
+    // Temperature id is temp
+    // Conditions id is cond
+
+
+    btn.addEventListener("click", function(){
+        fetch('https://api.openweathermap.org/data/2.5/weather?zip=40515,&appid=82d10d8b9124f9ece3e56c62befeda72')
+        .then(Response => Response.json())
+        .then(data => console.log(data))
+    
+        .catch (err => alert("Invalid City"))
+
+    })
+
+
+
+    // }
 
 // placeHolder();
 
