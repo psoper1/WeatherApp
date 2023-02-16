@@ -1,9 +1,3 @@
-// let url = "https://api.openweathermap.org/";
-// let apiKey = "82d10d8b9124f9ece3e56c62befeda72";
-
-
-
-// function placeHolder() {
 let main = document.getElementById("main");
 let theStrap = document.createElement("div");
 theStrap.className = "mainStrap";
@@ -52,35 +46,21 @@ text4.id = "cond";
 setCondition.appendChild(text4);
 theStrap.appendChild(setCondition);
 
-
-// City id is city
-// Temperature id is temp
-// Conditions id is cond
-
-// let cityData = "";
-// let temperatureF = "";
-// let conditionsW = "";
-
-
-
-
-
 btn.addEventListener("click", function () {
     axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${btn2.value}&appid=82d10d8b9124f9ece3e56c62befeda72`)
-        // .then(Response => Response.json())
         .then(response => {
             console.log(response.data);
             cityData = response.data.name;
             temperatureK = Math.round(response.data.main.temp * 9 / 5 - 459.67);
-            // response.data.main.temp;
+
             conditionsW = response.data.weather[0].description;
             console.log(response.cityData);
-            
+
             console.log(cityData);
             console.log(temperatureK);
             console.log(conditionsW);
 
-            // (temperatureK * 9) / 5 - 459.67;
+
 
             text.innerText = cityData;
             text3.innerText = temperatureK;
@@ -90,6 +70,24 @@ btn.addEventListener("click", function () {
         .catch(error => console.log("Error", error));
 })
 
+
+
+
+
+
+
+
+
+
+
+// Code that didn't work but got me to a finished"ish" product
+
+// let url = "https://api.openweathermap.org/";
+// let apiKey = "82d10d8b9124f9ece3e56c62befeda72";
+
+
+
+// function placeHolder() {
 
 
     // }
@@ -103,7 +101,7 @@ btn.addEventListener("click", function () {
 
 
 
-
+// (temperatureK * 9) / 5 - 459.67;
 
 
 
@@ -172,23 +170,13 @@ btn.addEventListener("click", function () {
 
 
 
+// City id is city
+// Temperature id is temp
+// Conditions id is cond
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// let cityData = "";
+// let temperatureF = "";
+// let conditionsW = "";
 
 
 // let theStrap = document.createElement("div");
