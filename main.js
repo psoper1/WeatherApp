@@ -6,7 +6,7 @@ main.appendChild(theStrap);
 let aboveButton = document.createElement("div");
 let text2 = document.createElement("h3");
 text2.textContent = "What's the weather like today? Put in your ZIP and find out!";
-text2.className = "font-bold text-danger";
+text2.className = "font-bold";
 aboveButton.appendChild(text2);
 theStrap.appendChild(aboveButton);
 
@@ -67,7 +67,7 @@ btn.addEventListener("click", function () {
             text4.innerText = conditionsW;
 
         })
-        .catch(error => console.log("Error", error));
+        .catch(error => alert("Please enter a valid Zip Code", error));
 })
 
 
