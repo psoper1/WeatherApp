@@ -56,12 +56,21 @@ btn.addEventListener("click", function getAPI() {
             cityData = response.data.name;
             temperatureK = Math.round(response.data.main.temp * 9 / 5 - 459.67);
 
-            conditionsW = response.data.weather[0].description;
+            console.log(response.data);
+
+            conditionsW = response.data.weather[0].main;
+
+            // response.data.weather[0].main;
 
             // Setting conditionW manually to show off if statement
-            // conditionsW = "overcast clouds";
-            // conditionsW = "broken clouds"
-           
+            // conditionsW = "Clouds";
+            // conditionsW = "Clear";
+            // conditionsW = "Mist";
+            // conditionsW = "Snow";
+            // conditionsW = "Rain";
+            // conditionsW = "Drizzle";
+            // conditionsW = "Thunderstorm";
+
             text.innerText = "City: " + cityData;
             text3.innerText = "It is " + temperatureK + "F outside";
             text4.innerText = "Forecast is: " + conditionsW;
@@ -71,12 +80,28 @@ btn.addEventListener("click", function getAPI() {
             imgs.src = "";
             imgs.className = "rounded mx-auto d-block";
 
-            if (conditionsW === "overcast clouds") {
-                imgs.src = "cloud.png";
+            if (conditionsW === "Clouds") {
+                imgs.src = "/imgs/clouds.png";
             }
-            else if (conditionsW === "broken clouds") {
-                imgs.src = "clouds.png";
+            else if (conditionsW === "Clear") {
+                imgs.src = "/imgs/clear-sky.png";
             }
+            else if (conditionsW === "Mist") {
+                imgs.src = "/imgs/mist.png";
+            }
+            else if (conditionsW === "Snow") {
+                imgs.src = "/imgs/snow.png";
+            }
+            else if (conditionsW === "Rain") {
+                imgs.src = "/imgs/rain.png";
+            }
+            else if (conditionsW === "Drizzle") {
+                imgs.src = "/imgs/rain.png";
+            }
+            else if (conditionsW === "Thunderstorm") {
+                imgs.src = "/imgs/thunderstorm.png";
+            }
+
             console.log(cityData);
             console.log(temperatureK);
             console.log(conditionsW);
