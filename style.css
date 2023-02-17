@@ -1,4 +1,8 @@
+body {
+    background-color: rgb(198, 247, 224);
+}
 
-#bootstrap {
-    text-decoration-color: aqua;
+#img {
+width: 200px;
+height: 185px;
 }
