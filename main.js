@@ -26,7 +26,7 @@ btn.className = "btn btn-outline-primary";
 
 let cityInfo = document.createElement("div");
 let text = document.createElement("p");
-text.textContent = "City:";
+// text.textContent = "City:";
 text.className = "h4 d-flex justify-content-center font-bold text-success";
 text.id = "city";
 cityInfo.appendChild(text);
@@ -34,7 +34,7 @@ theStrap.appendChild(cityInfo);
 
 let setTemp = document.createElement("div");
 let text3 = document.createElement("p");
-text3.textContent = "Temperature:";
+// text3.textContent = "Temperature:";
 text3.className = "h4 d-flex justify-content-center font-bold text-success";
 text3.id = "temp";
 setTemp.appendChild(text3);
@@ -42,7 +42,7 @@ theStrap.appendChild(setTemp);
 
 let setCondition = document.createElement("div");
 let text4 = document.createElement("p");
-text4.textContent = "Conditions:";
+// text4.textContent = "Conditions:";
 text4.className = "h4 d-flex justify-content-center font-bold text-success";
 text4.id = "cond";
 setCondition.appendChild(text4);
@@ -71,9 +71,9 @@ btn.addEventListener("click", function getAPI() {
             // conditionsW = "Drizzle";
             // conditionsW = "Thunderstorm";
 
-            text.innerText = "City: " + cityData;
-            text3.innerText = "It is " + temperatureK + "F outside";
-            text4.innerText = "Forecast is: " + conditionsW;
+            text.innerText = "In " + cityData + ",";
+            text3.innerText = "It is " + temperatureK + "°F outside.";
+            text4.innerText = "The forecast is: " + conditionsW;
             let imgs = document.createElement("img");
             imgs.id = "img";
             theStrap.appendChild(imgs);
@@ -108,3 +108,4 @@ btn.addEventListener("click", function getAPI() {
         })
         .catch(error => alert("Looks like you picked yourself a bouquet of Oopsie Daisies and didn't enter a valid ZIP Code!", error));
 })
+
