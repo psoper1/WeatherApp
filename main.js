@@ -61,7 +61,7 @@ btn.addEventListener("click", function getAPI() {
             // Setting conditionW manually to show off if statement
             // conditionsW = "overcast clouds";
             // conditionsW = "broken clouds"
-
+           
             text.innerText = "City: " + cityData;
             text3.innerText = "It is " + temperatureK + "F outside";
             text4.innerText = "Forecast is: " + conditionsW;
