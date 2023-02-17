@@ -50,6 +50,7 @@ theStrap.appendChild(setCondition);
 
 
 btn.addEventListener("click", function getAPI() {
+
     axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${btn2.value}&appid=82d10d8b9124f9ece3e56c62befeda72`)
         .then(response => {
 
@@ -81,25 +82,25 @@ btn.addEventListener("click", function getAPI() {
             imgs.className = "rounded mx-auto d-block";
 
             if (conditionsW === "Clouds") {
-                imgs.src = "/imgs/clouds.png";
+                imgs.src = "./imgs/clouds.png";
             }
             else if (conditionsW === "Clear") {
-                imgs.src = "/imgs/clear-sky.png";
+                imgs.src = "./imgs/clear-sky.png";
             }
             else if (conditionsW === "Mist") {
-                imgs.src = "/imgs/mist.png";
+                imgs.src = "./imgs/mist.png";
             }
             else if (conditionsW === "Snow") {
-                imgs.src = "/imgs/snow.png";
+                imgs.src = "./imgs/snow.png";
             }
             else if (conditionsW === "Rain") {
-                imgs.src = "/imgs/rain.png";
+                imgs.src = "./imgs/rain.png";
             }
             else if (conditionsW === "Drizzle") {
-                imgs.src = "/imgs/rain.png";
+                imgs.src = "./imgs/rain.png";
             }
             else if (conditionsW === "Thunderstorm") {
-                imgs.src = "/imgs/thunderstorm.png";
+                imgs.src = "./imgs/thunderstorm.png";
             }
 
             console.log(cityData);
